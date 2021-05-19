@@ -29,7 +29,7 @@ print(messenger.sendtext('Exchange = ' + str(FTX)))      ## Network checking / L
 
 ################################# Price of SRM #############################################
 
-SRM_value = json.dumps(FTX.fetch_ticker('SRM/USD'))
+SRM_value = json.dumps(FTX.fetch_ticker('SRM/USD'))         ## pair 'SRM/USD'/ u can change to pair what u want ##
 Price_SRM = json.loads(SRM_value)
 print(messenger.sendtext('SRM = ' + str(Price_SRM['last'])))     ## Line notify ##
 
