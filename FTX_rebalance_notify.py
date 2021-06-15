@@ -44,12 +44,12 @@ while True:
 
     if A < Rebalance_value:
         amount = Rebalance_value - A
-            print(messenger.sendtext('Buy ' + str(amount)))      
+            print(messenger.sendtext('Buy SRM ' + str(amount)))      
             time.sleep(1800)                                    ## 1800 sec./u can change to what u want ## 
 
     elif A > Rebalance_value:
         amount = A - Rebalance_value
-            print(messenger.sendtext('Sell ' + str(amount)))
+            print(messenger.sendtext('Sell SRM ' + str(amount)))
             time.sleep(1800)
         
 else:
