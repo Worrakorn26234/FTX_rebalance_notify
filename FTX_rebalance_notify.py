@@ -35,25 +35,23 @@ print(messenger.sendtext('SRM = ' + str(Price_SRM['last'])))     ## Line notify 
 
 ############################### Balance #######################################
 
-balance = FTX.fetch_balance()
+while True:
+    balance = FTX.fetch_balance()
 
-A = balance['total']['SRM'] * Price_SRM['last']  ## SRM value * Price = net balance ##
- 
-######### i set this bot to rebalance every 30 min for 48 round (24 hr). ###########
+    A = balance['total']['SRM'] * Price_SRM['last']  ## SRM value * Price = net balance ##
 
-if A < Rebalance_value:
-    amount = Rebalance_value - A
-    for i in range(0,48):                                   ## 48 round (24 hr.)/u can change to what u want ##
-        print(messenger.sendtext('Buy ' + str(amount)))      
-        time.sleep(1800)                                    ## 1800 sec./u can change to what u want ## 
+######### i set this bot to checking price for rebalance every 30 min ##############
 
-elif A > Rebalance_value:
-    amount = A - Rebalance_value
-    for i in range(0,48):
-        print(messenger.sendtext('Sell ' + str(amount)))
-        time.sleep(1800)
+    if A < Rebalance_value:
+        amount = Rebalance_value - A
+            print(messenger.sendtext('Buy ' + str(amount)))      
+            time.sleep(1800)                                    ## 1800 sec./u can change to what u want ## 
+
+    elif A > Rebalance_value:
+        amount = A - Rebalance_value
+            print(messenger.sendtext('Sell ' + str(amount)))
+            time.sleep(1800)
         
 else:
-    for i in range(0,48):
         print(messenger.sendtext('Do notihng'))
         time.sleep(1800)
